@@ -1,0 +1,48 @@
+CRITICAL - 2023-07-21 18:06:44 --> Dashboard filter must have a matching alias defined.
+#0 C:\xampp\htdocs\MS\system\Filters\Filters.php(354): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('Dashboard')
+#1 C:\xampp\htdocs\MS\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->enableFilter('Dashboard', 'before')
+#2 C:\xampp\htdocs\MS\system\CodeIgniter.php(332): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\MS\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2023-07-21 18:07:12 --> Dashboard filter must have a matching alias defined.
+#0 C:\xampp\htdocs\MS\system\Filters\Filters.php(354): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('Dashboard')
+#1 C:\xampp\htdocs\MS\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->enableFilter('Dashboard', 'before')
+#2 C:\xampp\htdocs\MS\system\CodeIgniter.php(332): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\MS\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2023-07-21 18:07:38 --> Dashboard filter must have a matching alias defined.
+#0 C:\xampp\htdocs\MS\system\Filters\Filters.php(354): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('Dashboard')
+#1 C:\xampp\htdocs\MS\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->enableFilter('Dashboard', 'before')
+#2 C:\xampp\htdocs\MS\system\CodeIgniter.php(332): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\MS\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2023-07-21 18:10:30 --> Dashboard filter must have a matching alias defined.
+#0 C:\xampp\htdocs\MS\system\Filters\Filters.php(354): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('Dashboard')
+#1 C:\xampp\htdocs\MS\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->enableFilter('Dashboard', 'before')
+#2 C:\xampp\htdocs\MS\system\CodeIgniter.php(332): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\MS\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2023-07-21 18:11:37 --> Dashboard filter must have a matching alias defined.
+#0 C:\xampp\htdocs\MS\system\Filters\Filters.php(354): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('Dashboard')
+#1 C:\xampp\htdocs\MS\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->enableFilter('Dashboard', 'before')
+#2 C:\xampp\htdocs\MS\system\CodeIgniter.php(332): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\MS\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2023-07-21 18:14:21 --> Dashboard filter must have a matching alias defined.
+#0 C:\xampp\htdocs\MS\system\Filters\Filters.php(354): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('Dashboard')
+#1 C:\xampp\htdocs\MS\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->enableFilter('Dashboard', 'before')
+#2 C:\xampp\htdocs\MS\system\CodeIgniter.php(332): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\MS\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2023-07-21 18:20:58 --> Dashboard filter must have a matching alias defined.
+#0 C:\xampp\htdocs\MS\system\Filters\Filters.php(354): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('Dashboard')
+#1 C:\xampp\htdocs\MS\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->enableFilter('Dashboard', 'before')
+#2 C:\xampp\htdocs\MS\system\CodeIgniter.php(332): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\MS\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2023-07-21 18:23:32 --> Dashboard filter must have a matching alias defined.
+#0 C:\xampp\htdocs\MS\system\Filters\Filters.php(354): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('Dashboard')
+#1 C:\xampp\htdocs\MS\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->enableFilter('Dashboard', 'before')
+#2 C:\xampp\htdocs\MS\system\CodeIgniter.php(332): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\MS\index.php(44): CodeIgniter\CodeIgniter->run()
+#4 {main}

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <!-- Basic Page Info -->
+    <meta charset="utf-8">
+    <title>Project Manegment System </title>
+
+    <!-- Site favicon -->
+    <link rel="sfhm-touch-icon" sizes="180x180"
+        href="<?php echo base_url(); ?>/assets/vendors/images/sfhm-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="<?php echo base_url(); ?>/assets/vendors/images/sfhm-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="<?php echo base_url(); ?>/assets/vendors/images/sfhm-16x16.png">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/vendors/styles/core.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/vendors/styles/icon-font.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="<?php echo base_url(); ?>/assets/src/plugins/jquery-steps/jquery.steps.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/vendors/styles/style.css">
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-119386393-1');
+    </script>
+</head>
+
+<body class="header-white active sidebar-dark" data-new-gr-c-s-check-loaded="14.1117.0" data-gr-ext-installed="">
+    <!-- echo header,rightsidebar,leftsidebar and loader -->
+    <?php 
+		echo view('deskapp/includes/_header');
+		echo view('deskapp/includes/_sidebar');
+	?>
+
+    <!-- ____________________START CSS___________________________ -->
+
+    <style>
+    /* ___________project cards CSS_______________ */
+
+    .project-card {
+
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        margin: 20px auto;
+    }
+
+    .project-card h2 {
+        font-size: 24px;
+        margin: 0 0 10px;
+        color: #007bff;
+    }
+
+    .project-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .project-info .icon {
+        font-size: 24px;
+        margin-right: 10px;
+        color: #007bff;
+    }
+
+    .project-info span {
+        color: #444;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-edit {
+        background-color: #007bff;
+    }
+
+    .btn-view {
+        background-color: #28a745;
+    }
+
+    .btn-edit:hover,
+    .btn-view:hover {
+        background-color: #0056b3;
+    }
+    </style>
+    <!-- ____________________END CSS___________________________ -->
+    <div class="main-container">
+        <div style="text-align: center;">
+            <!-- تجربة شكل المراحل  -->
+            <!-- <div class="pd-ltr-20">
+                <div claass="row pd-ltr-20 " style="background-color: lightblue; border-radius: 10px;">
+                    <br>
+                    <h3> مشاريع في المرحلة الأولى : استلام طلب المشروع </h3><br>
+                </div>
+            </div> -->
+
+
+            <!-- <div class="alert alert-primary" >
+                <h4> مشاريع في المرحلة الأولى : استلام طلب المشروع </h4>
+            </div>
+            <div class="alert alert-primary" >
+                 مشاريع في المرحلة الأولى : استلام طلب المشروع
+            </div> -->
+
+            <div class="alert alert-warning">
+                <h4> مشاريع في المرحلة الأولى : استلام طلب المشروع </h4>
+
+
+            <div class="row">
+            <?php foreach ($project_data['pro_name'] as $index => $pro_name): ?>
+                    <?php if (isset($project_data['level#'][$index]) && $project_data['level#'][$index] === "1"): ?>
+
+
+                <!-- Adjust the column width based on your layout -->
+                <div class="col-md-4" style="flex: 1; margin-bottom: 20px;">
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h2><?php echo $pro_name; ?></h2>
+                        </div>
+                        <div class="project-info">
+                            <span class="icon"><i class="icon-copy fa fa-pencil-square-o" aria-hidden="true"></i></span>
+                            <span class="state"
+                                style="color: blue;"><?php echo $project_data['state'][$index]; ?></span>
+                        </div>
+
+                        <div class="project-info">
+                            <span class="icon"><i class="icon-copy fa fa-hashtag" aria-hidden="true"></i></span>
+                            <?php echo $project_data['project_code'][$index]; ?>
+                        </div>
+                        <div class="buttons">
+                            <a class="btn btn-edit"
+                                href="http://localhost/MS/deskapp/ui/tooltip/<?= $project_data['id_project'][$index] ?>">تعديل</a>
+                            <!-- <a class="btn btn-view"
+                                href="http://localhost/MS/deskapp/forms/wizard/<?= $project_data['id_project'][$index] ?>">عرض</a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+            </div>
+
+
+            <!-- Level 1 -->
+            <!-- المرحلة الأولى : استلام طلب المشروع -->
+
+            <!-- Level 2 -->
+            <!--  المرحلة الثانية : دراسة طلب المشروع -->
+
+
+            <!-- Level 3 -->
+            <!-- المرحل الثالثة : جمع متطلبات المشروع  -->
+
+
+            <!-- Level 4 -->
+            <!-- المرحلة الرابعة :متطلبات المشروع -->
+
+            <div class="alert alert-danger">
+            <h4> مشاريع في المرحلة الثانية : دراسة طلب المشروع </h4>
+            <div class="row">
+                <?php foreach ($project_data['pro_name'] as $index => $pro_name): ?>
+                    <?php if (isset($project_data['level#'][$index]) && $project_data['level#'][$index] === "2"): ?>
+
+
+                <!-- Adjust the column width based on your layout -->
+                <div class="col-md-4" style="flex: 1; margin-bottom: 20px;">
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h2><?php echo $pro_name; ?></h2>
+                        </div>
+                        <div class="project-info">
+                            <span class="icon"><i class="icon-copy fa fa-pencil-square-o" aria-hidden="true"></i></span>
+                            <span class="state"
+                                style="color: blue;"><?php echo $project_data['state'][$index]; ?></span>
+                        </div>
+
+                        <div class="project-info">
+                            <span class="icon"><i class="icon-copy fa fa-hashtag" aria-hidden="true"></i></span>
+                            <?php echo $project_data['project_code'][$index]; ?>
+                        </div>
+                        <div class="buttons">
+                            <a class="btn btn-edit"
+                                href="http://localhost/MS/deskapp/ui/tooltip/<?= $project_data['id_project'][$index] ?>">تعديل</a>
+                            <!-- <a class="btn btn-view"
+                                href="http://localhost/MS/deskapp/forms/wizard/<?= $project_data['id_project'][$index] ?>">عرض</a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+            </div>
+
+
+            <div class="alert alert-primary">
+            <h4> مشاريع في المرحلة الثالثة : جمع متطلبات المشروع </h4>
+            <div class="row">
+                <?php foreach ($project_data['pro_name'] as $index => $pro_name): ?>
+                    <?php if (isset($project_data['level#'][$index]) && $project_data['level#'][$index] === "3"): ?>
+
+
+                <!-- Adjust the column width based on your layout -->
+                <div class="col-md-4" style="flex: 1; margin-bottom: 20px;">
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h2><?php echo $pro_name; ?></h2>
+                        </div>
+                        <div class="project-info">
+                            <span class="icon"><i class="icon-copy fa fa-pencil-square-o" aria-hidden="true"></i></span>
+                            <span class="state"
+                                style="color: blue;"><?php echo $project_data['state'][$index]; ?></span>
+                        </div>
+
+                        <div class="project-info">
+                            <span class="icon"><i class="icon-copy fa fa-hashtag" aria-hidden="true"></i></span>
+                            <?php echo $project_data['project_code'][$index]; ?>
+                        </div>
+                        <div class="buttons">
+                            <a class="btn btn-edit"
+                                href="http://localhost/MS/deskapp/ui/tooltip/<?= $project_data['id_project'][$index] ?>">تعديل</a>
+                            <!-- <a class="btn btn-view"
+                                href="http://localhost/MS/deskapp/forms/wizard/<?= $project_data['id_project'][$index] ?>">عرض</a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+            </div>
+
+
+
+            <div class="alert alert-success">
+            <h4> مشاريع في المرحلة الرابعة : متطلبات المشروع </h4>
+            <div class="row">
+                <?php foreach ($project_data['pro_name'] as $index => $pro_name): ?>
+                    <?php if (isset($project_data['level#'][$index]) && $project_data['level#'][$index] === "4" && $project_data['state'][$index] === "قيد الإنشاء"): ?>
+
+
+                <!-- Adjust the column width based on your layout -->
+                <div class="col-md-4" style="flex: 1; margin-bottom: 20px;">
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h2><?php echo $pro_name; ?></h2>
+                        </div>
+                        <div class="project-info">
+                            <span class="icon"><i class="icon-copy fa fa-pencil-square-o" aria-hidden="true"></i></span>
+                            <span class="state"
+                                style="color: blue;"><?php echo $project_data['state'][$index]; ?></span>
+                        </div>
+
+                        <div class="project-info">
+                            <span class="icon"><i class="icon-copy fa fa-hashtag" aria-hidden="true"></i></span>
+                            <?php echo $project_data['project_code'][$index]; ?>
+                        </div>
+                        <div class="buttons">
+                            <a class="btn btn-edit"
+                                href="http://localhost/MS/deskapp/ui/tooltip/<?= $project_data['id_project'][$index] ?>">تعديل</a>
+                            <!-- <a class="btn btn-view"
+                                href="http://localhost/MS/deskapp/forms/wizard/<?= $project_data['id_project'][$index] ?>">عرض</a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+        <!-- footer -->
+        <?php echo view('deskapp/includes/_footer'); ?>
+    </div>
+    </div>
+    <!-- js -->
+    <script src="http://localhost/MS/assets/vendors/scripts/core.js"></script>
+    <script src="http://localhost/MS/assets/vendors/scripts/script.min.js"></script>
+    <script src="http://localhost/MS/assets/vendors/scripts/process.js"></script>
+    <script src="http://localhost/MS/assets/vendors/scripts/layout-settings.js"></script>
+    <script src="http://localhost/MS/assets/src/plugins/apexcharts/apexcharts.min.js"></script>
+    <script src="http://localhost/MS/assets/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="http://localhost/MS/assets/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="http://localhost/MS/assets/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+    <script src="http://localhost/MS/assets/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+    <script src="http://localhost/MS/assets/vendors/scripts/dashboard.js"></script>
+
+    <svg id="SvgjsSvg1230" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1231"></defs>
+        <polyline id="SvgjsPolyline1232" points="0,0"></polyline>
+        <path id="SvgjsPath1233" d="M0 0 "></path>
+    </svg>
+    <grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+    <div class="abineContentPanel"
+        style="background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent !important; margin: 0px !important; padding: 0px !important; display: none; opacity: 1 !important; z-index: 2147483647 !important; position: absolute !important; top: 20px !important; right: 20px !important; overflow: hidden !important; border-width: 0px !important; visibility: visible !important;">
+        <iframe class="abineContentFrame" width="310px" allowtransparency="true" frameborder="0" height="0px"
+            scrolling="no"
+            src="chrome-extension://caljgklbbfbcjjanaijlacgncafpegll/html/inlineForm.html?abine50719337doNotRemove"
+            id="abine50719337doNotRemove" position="undefined"
+            style="display:block !important;position:relative !important;background:transparent !important;border-width:0px !important;left:0px !important;top:0px !important;visibility:visible !important;opacity:1 !important;filter:alpha(opacity:100) !important;margin:0 !important;padding:0 !important;height:0px !important;width:310px"></iframe>
+    </div><svg id="SvgjsSvg1109" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1110"></defs>
+        <polyline id="SvgjsPolyline1111" points="0,0"></polyline>
+        <path id="SvgjsPath1112" d="M0 0 "></path>
+    </svg><svg id="SvgjsSvg1109" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1110"></defs>
+        <polyline id="SvgjsPolyline1111" points="0,0"></polyline>
+        <path id="SvgjsPath1112" d="M0 0 "></path>
+    </svg><svg id="SvgjsSvg1109" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1110"></defs>
+        <polyline id="SvgjsPolyline1111" points="0,0"></polyline>
+        <path id="SvgjsPath1112" d="M0 0 "></path>
+    </svg><svg id="SvgjsSvg1109" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1110"></defs>
+        <polyline id="SvgjsPolyline1111" points="0,0"></polyline>
+        <path id="SvgjsPath1112" d="M0 0 "></path>
+    </svg>
+
+
+    <svg id="SvgjsSvg1109" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1110"></defs>
+        <polyline id="SvgjsPolyline1111" points="0,0"></polyline>
+        <path id="SvgjsPath1112" d="M0 0 "></path>
+    </svg><svg id="SvgjsSvg1109" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1110"></defs>
+        <polyline id="SvgjsPolyline1111" points="0,0"></polyline>
+        <path id="SvgjsPath1112" d="M0 0 "></path>
+    </svg><svg id="SvgjsSvg1109" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1110"></defs>
+        <polyline id="SvgjsPolyline1111" points="0,0"></polyline>
+        <path id="SvgjsPath1112" d="M0 0 "></path>
+    </svg><svg id="SvgjsSvg1109" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1110"></defs>
+        <polyline id="SvgjsPolyline1111" points="0,0"></polyline>
+        <path id="SvgjsPath1112" d="M0 0 "></path>
+    </svg><svg id="SvgjsSvg1109" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1110"></defs>
+        <polyline id="SvgjsPolyline1111" points="0,0"></polyline>
+        <path id="SvgjsPath1112" d="M0 0 "></path>
+    </svg><svg id="SvgjsSvg1109" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1110"></defs>
+        <polyline id="SvgjsPolyline1111" points="0,0"></polyline>
+        <path id="SvgjsPath1112" d="M0 0 "></path>
+    </svg><svg id="SvgjsSvg1109" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1110"></defs>
+        <polyline id="SvgjsPolyline1111" points="0,0"></polyline>
+        <path id="SvgjsPath1112" d="M0 0 "></path>
+    </svg><svg id="SvgjsSvg1109" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1110"></defs>
+        <polyline id="SvgjsPolyline1111" points="0,0"></polyline>
+        <path id="SvgjsPath1112" d="M0 0 "></path>
+    </svg>
+
+
+    <svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1002"></defs>
+        <polyline id="SvgjsPolyline1003" points="0,0"></polyline>
+        <path id="SvgjsPath1004" d="M0 0 "></path>
+    </svg><svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+        style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1002"></defs>
+        <polyline id="SvgjsPolyline1003" points="0,0"></polyline>
+        <path id="SvgjsPath1004" d="M0 0 "></path>
+    </svg>
+</body>
+
+</html>

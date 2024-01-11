@@ -1,0 +1,15 @@
+{
+    "name": "96653/ms",
+    "autoload": {
+        "psr-4": {
+            "96653\\Ms\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sa-79",
+            "email": "140039656+sa-79@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
